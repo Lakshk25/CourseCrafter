@@ -20,8 +20,10 @@ export default function RootLayout({
     // clerk for sign-in sign-up
     <ClerkProvider>
     <html lang="en">
+      <body className={inter.className}>
       <ToastProvider/>
-      <body className={inter.className}>{children}</body>
+      {children}
+      </body>
     </html>
     </ClerkProvider>
   );
