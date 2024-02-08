@@ -49,8 +49,7 @@ const ChaptersList = ({
         // if dropped outside box 
         if (!result.destination) return;
 
-        // result json data of draggable item with source and destination of item
-
+        // result contains data of draggable item with source and destination of item and more info
         // console.log(result);
         
         // reordering the items
@@ -58,6 +57,10 @@ const ChaptersList = ({
         const [reorderedItem] = items.splice(result.source.index, 1);
         items.splice(result.destination.index, 0, reorderedItem);
 
+        // final position
+        setChapters(items);
+
+        // below part change postion in db
         const startIndex = Math.min(result.source.index, result.destination.index);
         const endIndex = Math.max(result.source.index, result.destination.index);
 
@@ -65,10 +68,6 @@ const ChaptersList = ({
         const updatedChapters = items.slice(startIndex, endIndex + 1);
         // console.log(updatedChapters);
 
-        // final position
-        setChapters(items);
-
-        // function to change postion in db 
         const bulkUpdateData = updatedChapters.map((chapter) => ({
             id: chapter.id,
             position: items.findIndex((item) => item.id === chapter.id)
