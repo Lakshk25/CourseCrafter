@@ -85,6 +85,7 @@ const ImageForm = ({
                     <FileUpload
                     endpoint="courseImage"
                     onChange={(url) => {
+                        console.log(url);
                         if(url) {
                             onSubmit({ imageUrl: url });
                         }

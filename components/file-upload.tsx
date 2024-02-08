@@ -14,8 +14,10 @@ export const FileUpload = ({
     endpoint
 }: FileUploadProps) => {
     return (
+        // drag and drop or choose file
         <UploadDropzone 
         endpoint={endpoint}
+        // contains image information (res)
         onClientUploadComplete={(res) => {
             onChange(res?.[0].url);
         }}

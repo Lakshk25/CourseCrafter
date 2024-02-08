@@ -25,13 +25,14 @@ const CreatePage = () => {
         }
     });
 
-    // form states (react-hook-form docs)
+    // form states (react-hook-form docs) (can also done by react transition (isSubmitting))
     const { isSubmitting, isValid } = form.formState;
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
+            // return id of created course and redirect to course id page
             const response = await axios.post("/api/courses", values);
-            router.push(`/teacher/courses/${response.data.id}`);
+            router.push(`/teacher/courses/${response.data.id}`);    //redirect to course id page
             toast.success("Course created");
         } catch (error) {
             toast.error("Something went wrong");
