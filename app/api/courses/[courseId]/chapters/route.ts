@@ -33,7 +33,7 @@ export async function POST(
                 position: "desc",
             }
         });
-
+        
         const newPostion = lastChapter ? lastChapter.position + 1 : 1;
 
         const chapter = await db.chapter.create({

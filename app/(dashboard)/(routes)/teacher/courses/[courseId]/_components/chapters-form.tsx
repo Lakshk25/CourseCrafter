@@ -55,6 +55,7 @@ const ChaptersForm = ({
     }
 
     // change position in db
+    // for chapters reordering (db)
     const onReorder = async (updateData: {id: string; position: number}[]) => {
         setIsUpdating(true);
         try {
