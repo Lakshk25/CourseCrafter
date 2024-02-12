@@ -80,10 +80,26 @@ body,
   }
 }
 
-
 /* for description form preview component */
 .ql-container{
   font-size: 16px !important;
+}
+
+/* scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+  width: 4px;/* Set the width of the scrollbar */
+  height: 5px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: rgba(0, 0, 0, 0.3); /* Set the color of the scrollbar thumb */
+  border-radius: 20px; /* Set the border radius of the scrollbar thumb */
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* background-color: rgba(0, 0, 0, 0.1); Set the color of the scrollbar track */
 }
 
 @import "~@uploadthing/react/styles.css"

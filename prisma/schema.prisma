@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
 datasource db {
@@ -31,6 +32,8 @@ model Course {
   updatedAt DateTime @updatedAt
 
   @@index([categoryId])
+  // for mySQL add this
+  // @@fulltext([title])
 }
 
 model Category {
@@ -66,7 +69,7 @@ model Chapter{
   courseId String
   course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
-  useProgress UserProgress[]
+  userProgress UserProgress[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -108,6 +111,7 @@ model Purchase{
   createdAt DateTime @default(now())
   updatedAt DateTime  @updatedAt
 
+  @@unique([userId, courseId])
   @@index([courseId])
 }
 
