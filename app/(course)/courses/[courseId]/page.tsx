@@ -24,6 +24,7 @@ const CourseIdPage = async ({
   if (!course) {
     return redirect("/");
   }
+  // redirect to chapter 1
   return redirect(`/courses/${course.id}/chapters/${course.chapters[0].id}`);
 }
 

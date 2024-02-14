@@ -19,7 +19,6 @@ export async function PATCH(
     { params }: { params: { courseId: string; chapterId: string } }
 ) {
     try {
-
         const { userId } = auth();
         const { isPublished, ...values } = await req.json();
         console.log(values);
@@ -48,7 +47,6 @@ export async function PATCH(
                 ...values,
             }
         })
-
         // video
 
         if (values.videoUrl) {
@@ -57,7 +55,6 @@ export async function PATCH(
                     chapterId: params.chapterId
                 }
             });
-
             // delete old chapter video (clean up function )
             if (existingMuxData) {
                 await Video.Assets.del(existingMuxData.assetId);
@@ -74,7 +71,7 @@ export async function PATCH(
                 playback_policy: "public",
                 test: false,
             });
-
+            
             await db.muxData.create({
                 data: {
                     chapterId: params.chapterId,

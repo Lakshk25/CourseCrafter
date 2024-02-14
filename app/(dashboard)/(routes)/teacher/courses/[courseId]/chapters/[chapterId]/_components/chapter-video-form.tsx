@@ -27,10 +27,8 @@ const ChapterVideoForm = ({
     chapterId
 }: ChapterVideoProps) => {
     const [isEditing, setIsEditing] = useState(false);
-
     const toggleEdit = () => setIsEditing((current) => !current);
     const router = useRouter();
-
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
@@ -42,6 +40,7 @@ const ChapterVideoForm = ({
             toast.error("Something went wrong")
         }
     }
+    console.log('play ', initialData?.muxData?.playbackId);
     return (
         <div className="mt-6 border bg-slate-100 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
@@ -82,7 +81,6 @@ const ChapterVideoForm = ({
                     <FileUpload
                     endpoint="chapterVideo"
                     onChange={(url) => {
-                        console.log(url);
                         if(url) {
                             onSubmit({ videoUrl: url });
                         }
