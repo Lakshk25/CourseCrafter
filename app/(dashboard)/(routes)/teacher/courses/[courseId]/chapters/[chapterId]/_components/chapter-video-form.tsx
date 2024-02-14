@@ -40,7 +40,7 @@ const ChapterVideoForm = ({
             toast.error("Something went wrong")
         }
     }
-    console.log('play ', initialData?.muxData?.playbackId);
+
     return (
         <div className="mt-6 border bg-slate-100 rounded-md p-4">
             <div className="font-medium flex items-center justify-between">
